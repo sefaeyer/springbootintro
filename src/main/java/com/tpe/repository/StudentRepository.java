@@ -7,4 +7,8 @@ import org.springframework.stereotype.Repository;
 @Repository // yazmasak da olur, spring JpaRepo dan extend edildigi icin repo oldugunu anliyor
 public interface StudentRepository extends JpaRepository<Student, Long> {
 
+    boolean existsByEmail(String email);
+
+
+
 }
