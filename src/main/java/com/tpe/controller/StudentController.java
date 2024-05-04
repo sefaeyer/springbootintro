@@ -54,6 +54,11 @@ public class StudentController {
     @PostMapping  //http://localhost:8080/students + POST + JSON
     public ResponseEntity<Map<String,String>> createStudent(@Valid @RequestBody Student student){ // JSON --> Student objesine donmesi lazim
 
+        //@Valid : parametreler valid mi kontrol eder, bu ornekte Student
+            //objesi olusturmak icin gonderilen fieldlar yani
+            //name gibi ozellikler duzgun set edilmis mi onu kontrol eder
+        // @RequestBody = gelen requestin bodysindeki bilgiyi
+            //Student objesine map edilmesini sagliyor
 
         studentService.createStudent(student);
 

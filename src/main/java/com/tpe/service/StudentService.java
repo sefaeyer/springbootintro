@@ -24,7 +24,7 @@ public class StudentService {
 
     public void createStudent(Student student) {
 
-        // handle etmemiz gereken bir durum var mi? Email unique mi?
+        // kontrol etmemiz gereken bir durum var mi? Email unique mi?
         if(studentRepository.existsByEmail(student.getEmail())){
             throw new ConflictException("Email is already in use");
         }
