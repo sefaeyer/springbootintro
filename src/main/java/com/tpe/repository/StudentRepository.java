@@ -19,7 +19,7 @@ public interface StudentRepository extends JpaRepository<Student, Long> {
 
 
 
-    // JPL
+    // JPQL
     @Query("SELECT s FROM Student s WHERE s.grade=:pGrade")
     List<Student> findAllEqualsGrade(@Param("pGrade") Integer grade);
 
