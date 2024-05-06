@@ -76,7 +76,7 @@ public class StudentController {
 
 
     //Get Student By ID with -> RequestParam ******************************************
-    @GetMapping("/query")  // http://localhost:8080/students/query?id=1 + GET
+    @GetMapping("/query")  // http://localhost:8080/students/query?id=1 + GET  // coklu data almak icin @RequestParam
     public ResponseEntity<Student> getStudent(@RequestParam("id") Long id){
         Student student = studentService.findStudent(id);
         return ResponseEntity.ok(student); // 200
@@ -84,7 +84,7 @@ public class StudentController {
 
 
     //Get Student By ID with -> PathVariable ******************************************
-    @GetMapping("/{id}")  // http://localhost:8080/students/id=1 + GET
+    @GetMapping("/{id}")  // http://localhost:8080/students/1 + GET
     public ResponseEntity<Student> getStudentByPath(@PathVariable("id") Long id){
         Student student = studentService.findStudent(id);
         return ResponseEntity.ok(student); // 200
