@@ -3,6 +3,8 @@ package com.tpe.controller;
 import com.tpe.domain.Student;
 import com.tpe.dto.StudentDTO;
 import com.tpe.service.StudentService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -12,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -43,6 +46,8 @@ import java.util.Map;
 // 1 --> Student[] olur mu ? Olmaz List<> ile calismamam gerekiyor
 // 2 --> Response icinde Status codunu rahat setlemek icin ResponseEntity ..
 public class StudentController {
+
+    Logger logger = LoggerFactory.getLogger(StudentController.class);
 
     @Autowired
     private StudentService studentService;
@@ -161,6 +166,12 @@ public class StudentController {
     }
 
 
+    @GetMapping("/welcome") // http://localhost:8080/students/welcome + GET
+    public String welcome(HttpServletRequest request){
+
+        logger.warn("-------------------  W E L C O M E {}",request.getServletPath());
+        return "Welcome to Student Controller";
+    }
 
 
 

@@ -7,6 +7,8 @@ import org.hibernate.validator.constraints.UniqueElements;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -54,6 +56,9 @@ public class Student { //student
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MM/dd/yyyy HH:mm:ss", timezone = "Turkey") //database deki veri degismez
     @Setter(AccessLevel.NONE)
     private LocalDateTime createDate=LocalDateTime.now();
+
+    @OneToMany(mappedBy = "student")
+    private List<Book> books = new ArrayList<>();
 
 
 }
