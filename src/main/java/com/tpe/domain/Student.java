@@ -57,8 +57,11 @@ public class Student { //student
     @Setter(AccessLevel.NONE)
     private LocalDateTime createDate=LocalDateTime.now();
 
+
     @OneToMany(mappedBy = "student")
     private List<Book> books = new ArrayList<>();
+
+
 
 
     @OneToOne
