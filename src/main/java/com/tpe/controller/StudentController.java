@@ -12,6 +12,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -54,6 +55,7 @@ public class StudentController {
 
     // getAll() *************************************************************
     @GetMapping //http://localhost:8080/students + GET
+    @PreAuthorize("hasRole('ADMIN')")
     public ResponseEntity<List<Student>> getAll(){
         List<Student> students = studentService.getAll();
         return ResponseEntity.ok(students); // 200 status kodu ile nesneleri client tarafina yonlendirdi
