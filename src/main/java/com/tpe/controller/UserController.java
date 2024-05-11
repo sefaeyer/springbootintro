@@ -18,10 +18,10 @@ public class UserController {
     private UserService userService;
 
     //Register() ******************************************************
-    @PostMapping() // http://localhost:8080/register + POST
-    public ResponseEntity<String> register(@Valid @RequestBody UserRequest userRequest){
+    @PostMapping() // http://localhost:8080/register + POST + JSON
+    public ResponseEntity<String> register(@Valid @RequestBody UserRequest userRequest){ // UserRequest User in DTO class i
         userService.saveUser(userRequest);
-        String myResponse = "";
+        String myResponse = "User Resgistered Successfully";
         return new ResponseEntity<>(myResponse, HttpStatus.CREATED);
     }
 

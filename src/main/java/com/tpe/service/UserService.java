@@ -28,11 +28,11 @@ public class UserService {
         myUser.setFirstName(userRequest.getFirstName());
         myUser.setLastName(userRequest.getLastName());
         myUser.setUserName(userRequest.getUserName());
-//      myUser.setPassword(userRequest.getPassword());
+//      myUser.setPassword(userRequest.getPassword()); bunun yerine asagidaki metod kullanilacak
         String encodedPassword = passwordEncoder.encode(userRequest.getPassword());
         myUser.setPassword(encodedPassword);
 
-        // User a role bolgisi yukleniyor
+        // User a role bolgisi setleniyor
         Role role = roleService.getRoleByType(UserRole.ROLE_ADMIN);
         Set<Role> roles = new HashSet<>();
         roles.add(role);

@@ -53,9 +53,10 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
+
     // getAll() *************************************************************
     @GetMapping //http://localhost:8080/students + GET
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasRole('ADMIN')") // ADMIN yazinca ROLE_ADMIN yazmaya gerek kalmiyor
     public ResponseEntity<List<Student>> getAll(){
         List<Student> students = studentService.getAll();
         return ResponseEntity.ok(students); // 200 status kodu ile nesneleri client tarafina yonlendirdi
